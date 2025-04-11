@@ -9,7 +9,8 @@ public class MainMenu extends JFrame {
         setUndecorated(true);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
 
-        setBackgroundImage("C:\\Users\\Sergiu\\Desktop\\faith-spark-background1.jpg");
+
+        setBackgroundImage("/faith-spark-background1.jpg");
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.setOpaque(false);
@@ -19,11 +20,12 @@ public class MainMenu extends JFrame {
         int buttonWidth = 300;
         int buttonHeight = 150;
 
-        JButton startButton = createImageButton("C:\\Users\\Sergiu\\Downloads\\—Pngtree—game button switch start game_5321038.png", buttonWidth, buttonHeight);
-        JButton loadButton = createImageButton("C:\\Users\\Sergiu\\Downloads\\91f1e741b24dc5e4c1e862c044b87d97.png", buttonWidth, buttonHeight);
-        JButton exitButton = createImageButton("C:\\Users\\Sergiu\\Downloads\\—Pngtree—exit button vector web_7021808.png", buttonWidth, buttonHeight);
 
-        buttonPanel.add(Box.createVerticalStrut(200)); // distanță de sus
+        JButton startButton = createImageButton("/toppng.com-start-button-concept-game-start-button-781x291.png", buttonWidth, buttonHeight);
+        JButton loadButton = createImageButton("/91f1e741b24dc5e4c1e862c044b87d97.png", buttonWidth, buttonHeight);
+        JButton exitButton = createImageButton("/—Pngtree—exit button vector web_7021808.png", buttonWidth, buttonHeight);
+
+        buttonPanel.add(Box.createVerticalStrut(200));
         buttonPanel.add(centerComponent(startButton));
         buttonPanel.add(Box.createVerticalStrut(30));
         buttonPanel.add(centerComponent(loadButton));
@@ -50,7 +52,8 @@ public class MainMenu extends JFrame {
 
     private void setBackgroundImage(String imagePath) {
         try {
-            ImageIcon originalIcon = new ImageIcon(imagePath);
+
+            ImageIcon originalIcon = new ImageIcon(getClass().getResource(imagePath));
             Image originalImage = originalIcon.getImage();
 
             JLabel backgroundLabel = new JLabel() {
@@ -82,7 +85,8 @@ public class MainMenu extends JFrame {
         };
 
         try {
-            ImageIcon buttonIcon = new ImageIcon(imagePath);
+
+            ImageIcon buttonIcon = new ImageIcon(getClass().getResource(imagePath));
             Image buttonImage = buttonIcon.getImage();
             Image scaledButtonImage = buttonImage.getScaledInstance(width, height, Image.SCALE_SMOOTH);
             button.setIcon(new ImageIcon(scaledButtonImage));
